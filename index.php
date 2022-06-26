@@ -1,9 +1,9 @@
 <?php
-$start = "https://google.com/";
+$start = $_POST["start"];
 
 $links_visitados = array();
 $visitando = array();
-$find = "https://www.youtube.com/";
+$find = $_POST["find"];;
 $cont = 0;
 
 
@@ -48,10 +48,14 @@ function web_crawling($url)
             echo $l . "\n";
 
             if (strcasecmp($l, $find) == 0) {
-                echo "Encontrei <$find> na $cont ª iteração!" . "\n";
+                echo "Encontrei ".$_POST["find"]. "na $cont ª iteração!" . "\n";
                 exit(0);
             } else {
                 $cont++;
+
+                if($cont == 1000) {
+                    exit(0);
+                }
             }
         }
     }

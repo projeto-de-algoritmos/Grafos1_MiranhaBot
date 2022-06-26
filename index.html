@@ -5,11 +5,21 @@
     <title>Search form</title>
 </head>
 <body>
-    <form action="index.php" method="post">
+    <form action="display()" method="post">
         Insira a URL inicial: <input type=text name=start><br>
         Insira a URL que deseja rastrear: <input type=text name=find><br><br>
         <input type="submit">
     </form>
 
+    <?php
+        function display()
+        {
+            echo "==> ".$_POST["start"];
+        }
+        if(isset($_POST['submit']))
+        {
+        display();
+        } 
+    ?>
 </body>
 </html>

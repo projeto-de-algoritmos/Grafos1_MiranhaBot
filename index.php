@@ -1,14 +1,18 @@
 <?php
-$start = "https://github.com/projeto-de-algoritmos";
+$start = "https://google.com/";
 
 $links_visitados = array();
 $visitando = array();
+$find = "https://www.youtube.com/";
+$cont = 0;
 
 
 function web_crawling($url)
 {
     global $links_visitados;
     global $visitando;
+    global $find;
+    global $cont;
 
     $options = array('http' => array('method' => "GET", 'headers' => "User-Agent: MiranhaBot/1.0\n"));
     $context = stream_context_create($options);
@@ -41,7 +45,14 @@ function web_crawling($url)
             $links_visitados[] = $l;
             $visitando[] = $l;
 
-            echo $l."\n";
+            echo $l . "\n";
+
+            if (strcasecmp($l, $find) == 0) {
+                echo "Encontrei <$find> na $cont ª iteração!" . "\n";
+                exit(0);
+            } else {
+                $cont++;
+            }
         }
     }
 

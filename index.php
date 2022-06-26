@@ -4,6 +4,7 @@ $start = "https://github.com/projeto-de-algoritmos";
 $links_visitados = array();
 $visitando = array();
 
+
 function web_crawling($url)
 {
     global $links_visitados;
@@ -39,6 +40,8 @@ function web_crawling($url)
         if (!in_array($l, $links_visitados)) {
             $links_visitados[] = $l;
             $visitando[] = $l;
+
+            echo $l."\n";
         }
     }
 

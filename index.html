@@ -9,21 +9,8 @@
     <form action="index.php" method="post">
         Insira a URL inicial: <input type=text name=start><br>
         Insira a URL que deseja rastrear: <input type=text name=find><br><br>
-        <input type="submit">
+        <input type="submit" name="submit">
     </form>
 
-    <?php
-
-        $var = $_POST["start"];
-        function display()
-        {
-            echo "==> $var"."\n";
-        }
-        
-        if(isset($_POST['start']))
-        {
-        display();
-        } 
-    ?>
 </body>
 </html>

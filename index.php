@@ -1,9 +1,14 @@
 <?php
-$start = $_POST["start"];
+
+if (isset($_POST['submit'])) {
+    $start = $_POST["start"];
+    $find = $_POST["find"];;
+}
+
 
 $links_visitados = array();
 $visitando = array();
-$find = $_POST["find"];;
+
 $cont = 0;
 
 
@@ -48,11 +53,12 @@ function web_crawling($url)
             echo $l . "\n";
 
             if (strcasecmp($l, $find) == 0) {
-                echo "Encontrei ".$_POST["find"]. "na $cont ª iteração!" . "\n";
+                echo "Encontrei <$find> na $cont ª iteração!" . "\n";
                 exit(0);
             } else {
                 $cont++;
 
+                // Depois de 1000 links, sai do programa
                 if($cont == 1000) {
                     exit(0);
                 }

@@ -6,16 +6,18 @@
 </head>
 <body>
     
-    <form action="display()" method="post">
+    <form action="index.php" method="post">
         Insira a URL inicial: <input type=text name=start><br>
         Insira a URL que deseja rastrear: <input type=text name=find><br><br>
         <input type="submit">
     </form>
 
     <?php
+
+        $var = $_POST["start"];
         function display()
         {
-            echo "==> ".$_POST["start"];
+            echo "==> $var"."\n";
         }
         
         if(isset($_POST['start']))

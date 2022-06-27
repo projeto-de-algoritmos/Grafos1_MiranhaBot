@@ -5,6 +5,7 @@
     <title>Search form</title>
 </head>
 <body>
+    
     <form action="display()" method="post">
         Insira a URL inicial: <input type=text name=start><br>
         Insira a URL que deseja rastrear: <input type=text name=find><br><br>
@@ -16,7 +17,8 @@
         {
             echo "==> ".$_POST["start"];
         }
-        if(isset($_POST['submit']))
+        
+        if(isset($_POST['start']))
         {
         display();
         } 

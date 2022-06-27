@@ -2,11 +2,12 @@
 
 if (isset($_POST['submit'])) {
     $start = $_POST["start"];
-    $find = $_POST["find"];;
+    $find = $_POST["find"];
+
+    web_crawling($start);
 }
 
-
-$links_visitados = array();
+//$links_visitados = array();
 $visitando = array();
 
 $cont = 0;
@@ -14,7 +15,8 @@ $cont = 0;
 
 function web_crawling($url)
 {
-    global $links_visitados;
+    $links_visitados = array();
+    //global $links_visitados;
     global $visitando;
     global $find;
     global $cont;
@@ -50,7 +52,7 @@ function web_crawling($url)
             $links_visitados[] = $l;
             $visitando[] = $l;
 
-            echo $l . "\n";
+            echo "==> " . $l . "\n";
 
             if (strcasecmp($l, $find) == 0) {
                 echo "Encontrei <$find> na $cont ª iteração!" . "\n";
@@ -59,7 +61,7 @@ function web_crawling($url)
                 $cont++;
 
                 // Depois de 1000 links, sai do programa
-                if($cont == 1000) {
+                if ($cont == 1000) {
                     exit(0);
                 }
             }
@@ -75,4 +77,4 @@ function web_crawling($url)
     }
 }
 
-web_crawling($start);
+//web_crawling($start);
